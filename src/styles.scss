@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+@import 
+    "styles/material-theme",
+    "styles/layout",
+    "styles/module/sidenav"
+    ;
+    
+/* commentaire */
+
+html, body, material-app, md-sidenav-container, .my-content {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}

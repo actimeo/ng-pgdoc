@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary" class="app-toolbar">
+  <button md-icon-button (click)="sidenav.toggle()">
+    <md-icon>menu</md-icon>
+  </button> PgDoc
+  <span class="app-fill-remaining-space"></span>
+  <h3><span>{{navigation?.currentTitle}}</span></h3>
+  <button (click)="download()" md-button><md-icon>file_download</md-icon></button>
+</md-toolbar>
+<md-sidenav-container>
+  <md-sidenav name="menu" #sidenav mode="side" opened="true">
+    <div class="app-belowtoolbar">
+        <pr-schemas-list (onselected)="schemaSelected($event)"></pr-schemas-list>
+        <pr-schema-details #schemaDetails></pr-schema-details>
+    </div>
+  </md-sidenav>
+  <div class="app-belowtoolbar" md-scroll-y layout-padding>
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

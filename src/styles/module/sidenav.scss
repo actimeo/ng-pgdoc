@@ -1,0 +1,12 @@
+@import "../material-theme";
+
+md-list-item {
+  .mod-sidenav { color: #000; opacity: 0.87; }
+  &.selected { 
+    .md-list-item { background-color: #CFD8DC; } 
+  }
+}
+
+md-card {
+  &.selected { background-color: #CFD8DC; } 
+}

@@ -1,0 +1,24 @@
+<md-content layout-padding>
+    <div class="details-container">
+    <div *ngIf="description">
+        <pr-markdown [content]="description"></pr-markdown>
+    </div>
+
+    <h3>Columns</h3>
+    
+    <md-list>
+        <md-list-item *ngFor="let column of columns">
+            <div class="md-list-item-text" layout="column">
+                <h3><span class="argtype">{{column.typname}}<span *ngIf="column.typlen > 0">({{column.typlen}})</span></span> {{column.colname}}</h3>
+                <p>{{column.description}}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <div *ngIf="functionsReturningType">
+        <h3>Functions returning this type</h3>
+        <ul>
+            <li *ngFor="let function of functionsReturningType">{{function}}</li>
+        </ul>
+    </div>
+    </div>
+</md-content>

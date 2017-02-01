@@ -1,0 +1,25 @@
+@import "~@angular/material/core/theming/all-theme";
+
+@include md-core();
+
+$primary: md-palette($md-teal);
+$accent: md-palette($md-purple);
+$theme: md-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+
+nav { width: 200px; float: left; }
+
+md-content{
+    md-list { border-collapse: collapse; }
+    md-list-item { padding: 10px; }
+    .details-container { margin-left: 20px; }
+    .argtype { color: #009688; }
+
+    .chips { background-color: #E0E0E0; color: #424242; border-radius: 12px; height: 24px; line-height: 24px; padding: 0 8px; display: inline-block; font-size: 13px; }
+    
+    .buttonbar { text-align: right; }
+    
+    .arg { margin-left: 16px; }
+}
