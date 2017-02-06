@@ -1,40 +1,38 @@
-<div *ngIf="schema">
-    <md-list>
-        <md-list-item class="md-1-line" [routerLink]="['/', schema]">
-            <i md-icon class="material-icons">description</i>
-            <div class="md-list-item-text">Description</div>
-        </md-list-item>
+<div class="topdiv" *ngIf="schema">
+    <md-nav-list>
+        <md-list-item [routerLink]="['/', schema]">Description</md-list-item>
 
-        <div *ngIf="hasTables()">
-            <md-subheader class="md-subheader">Tables</md-subheader>
-        </div>
-        <md-list-item class="md-1-line" *ngFor="let table of tables" md-ink [routerLink]="['/', schema, 'table', table]">
-            <i md-icon class="material-icons">storage</i>
-            <div class="md-list-item-text">{{table}}</div>
-        </md-list-item>
+        <template [ngIf]="hasTables()">
+            <md-divider></md-divider>
+            <h3 md-subheader class="md-subheader">Tables</h3>
+            <md-list-item *ngFor="let table of tables" [routerLink]="['/', schema, 'table', table]">
+                {{table}}
+            </md-list-item>
+        </template>
 
-        <div *ngIf="hasTypes()">
-            <md-subheader class="md-subheader">Types</md-subheader>
-        </div>
-        <md-list-item class="md-1-line" *ngFor="let type of types" md-ink [routerLink]="['/', schema, 'type', type]">
-            <i md-icon class="material-icons">list</i>
-            <div class="md-list-item-text">{{type}}</div>
-        </md-list-item>
+        <template [ngIf]="hasTypes()">
+            <md-divider></md-divider>
+            <h3 md-subheader class="md-subheader">Types</h3>
+            <md-list-item class="md-1-line" *ngFor="let type of types" md-ink [routerLink]="['/', schema, 'type', type]">
+                {{type}}
+            </md-list-item>
+        </template>
 
-        <div *ngIf="hasEnums()">
-            <md-subheader class="md-subheader">Enums</md-subheader>
-        </div>
-        <md-list-item class="md-1-line" *ngFor="let enum of enums" md-ink [routerLink]="['/', schema, 'enum', enum ]">
-            <i md-icon class="material-icons">list</i>
-            <div class="md-list-item-text">{{enum}}</div>
-        </md-list-item>
+        <template [ngIf]="hasEnums()">
+            <md-divider></md-divider>
+            <h3 md-subheader class="md-subheader">Enums</h3>
+            <md-list-item class="md-1-line" *ngFor="let enum of enums" md-ink [routerLink]="['/', schema, 'enum', enum ]">
+                {{enum}}
+            </md-list-item>
+        </template>
 
-        <div *ngIf="hasFunctions()">
-            <md-subheader class="md-subheader">Functions</md-subheader>
-        </div>
-        <md-list-item class="md-1-line" *ngFor="let function of functions" [routerLink]="['/', schema, 'function', function ]">
-            <i md-icon class="material-icons">functions</i>
-            <div class="md-list-item-text">{{function}}</div>
-        </md-list-item>
-    </md-list>
+        <template [ngIf]="hasFunctions()">
+            <md-divider></md-divider>
+            <h3 md-subheader class="md-subheader">Functions</h3>
+            <md-list-item class="md-1-line" *ngFor="let function of functions" [routerLink]="['/', schema, 'function', function ]">
+                {{function}}
+            </md-list-item>
+        </template>
+
+    </md-nav-list>
 </div>

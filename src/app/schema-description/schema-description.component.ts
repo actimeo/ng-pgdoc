@@ -15,11 +15,7 @@ import {LocalStorageService} from '../services/local-storage/local-storage.servi
 export class SchemaDescriptionComponent implements OnInit {
 
   schema: string;
-
   description: any;
-  private olddescription;
-  private editing = false;
-  private displayOriginal: boolean = false;
 
   constructor(private _routeParams: ActivatedRoute, private pgService: PgService, private nav: NavigationService,
     private locStore: LocalStorageService) {
@@ -49,35 +45,4 @@ export class SchemaDescriptionComponent implements OnInit {
     });
   }
 
-  startEdit() {
-    this.editing = true;
-    this.olddescription = this.description;
-  }
-  save() {
-    this.editing = false;
-    // save description to local
-    this.locStore.setSchemaDescription(this.schema, this.description);
-  }
-  cancel() {
-    this.editing = false;
-    this.description = this.olddescription;
-  }
-  reset() {
-    // clear description saved in local
-    this.locStore.removeSchemaDescription(this.schema);
-    this.reloadData();
-  }
-
-  isModified() {
-    return this.locStore.schemaDescriptionExists(this.schema);
-  }
-
-  onDisplayOriginalChange(cbstate) {
-    this.displayOriginal = cbstate;
-    if (cbstate) {
-      this.reloadData();
-    } else {
-      this.reloadLocalData();
-    }
-  }
 }

@@ -1,14 +1,10 @@
-<md-content layout-padding>
-    <div class="details-container">
-    <div *ngIf="description">
-        <pr-markdown [content]="description"></pr-markdown>
-    </div>
+<div *ngIf="description">
+    <pr-markdown [content]="description"></pr-markdown>
+</div>
 
-    <div *ngIf="values">
-        <h3>Values</h3>
-        <ul>
-            <li *ngFor="let value of values">{{value}}</li>
-        </ul>
-    </div>
-    </div>
-</md-content>
+<div *ngIf="values">
+    <h3>Values</h3>
+    <ul>
+        <li *ngFor="let value of values">{{value}}</li>
+    </ul>
+</div>

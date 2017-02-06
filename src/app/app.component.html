@@ -1,19 +1,15 @@
-<md-toolbar color="primary" class="app-toolbar">
-  <button md-icon-button (click)="sidenav.toggle()">
+<div class="app">
+  <md-toolbar color="primary" class="app-toolbar">
+    <button md-icon-button (click)="sidenav.toggle()">
     <md-icon>menu</md-icon>
   </button> PgDoc
-  <span class="app-fill-remaining-space"></span>
-  <h3><span>{{navigation?.currentTitle}}</span></h3>
-</md-toolbar>
-<md-sidenav-container>
-  <md-sidenav name="menu" #sidenav mode="side" opened="true">
-    <div class="app-belowtoolbar">
-        <router-outlet name="menu"></router-outlet>
-        <!--pr-schemas-list (onselected)="schemaSelected($event)"></pr-schemas-list-->
-        
-    </div>
-  </md-sidenav>
-  <div class="app-belowtoolbar" md-scroll-y layout-padding>
+    <span class="app-fill-remaining-space"></span>
+    <h3><span>{{navigation?.currentTitle}}</span></h3>
+  </md-toolbar>
+  <md-sidenav-container>
+    <md-sidenav name="menu" #sidenav mode="side" opened="true">
+      <router-outlet name="menu"></router-outlet>
+    </md-sidenav>
     <router-outlet></router-outlet>
-  </div>
-</md-sidenav-container>
+  </md-sidenav-container>
+</div>
