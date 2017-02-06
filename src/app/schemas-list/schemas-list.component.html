@@ -1,4 +1,4 @@
-<select (change)="onSelectChange($event)">
+<select (change)="onSelectChange($event.target.value)">
   <option value="">(select a schema)</option> 
   <option *ngFor="let schema of schemas" value="{{schema}}">{{schema}}</option>
 </select>

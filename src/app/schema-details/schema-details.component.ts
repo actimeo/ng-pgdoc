@@ -55,7 +55,4 @@ export class SchemaDetailsComponent {
     this.reloadData();
   }
 
-  itemClick() {
-    console.log("click");
-  }
 }

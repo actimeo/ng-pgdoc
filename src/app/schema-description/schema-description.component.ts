@@ -24,7 +24,7 @@ export class SchemaDescriptionComponent implements OnInit {
   constructor(private _routeParams: ActivatedRoute, private pgService: PgService, private nav: NavigationService,
     private locStore: LocalStorageService) {
     this._routeParams.params.subscribe(params => {
-        this.schema = params['id'];
+        this.schema = params['schema'];
         this.nav.currentTitle = 'Schema ' + this.schema;
         if (!this.reloadLocalData()) {
           this.reloadData();
