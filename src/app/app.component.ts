@@ -13,11 +13,11 @@ declare var JSZip;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('schemaDetails') schemaDetails;
+  
   
   constructor(public navigation: NavigationService, private pgService: PgService, private locStore: LocalStorageService){
       navigation.currentTitle = 'Variation database';
   }
-  schemaSelected(event) { this.schemaDetails.setSchema(event); }
+  
   
 }

@@ -1,5 +1,6 @@
-import {Component, Output, EventEmitter, OnInit} from '@angular/core';
-
+import {Component, Output, EventEmitter, OnInit, ViewChild} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {PgService} from '../services/pg-service/pg-service';
 
 @Component({
@@ -9,17 +10,26 @@ import {PgService} from '../services/pg-service/pg-service';
 })
 export class SchemasListComponent implements OnInit {
  private schemas;
-
-  @Output() onselected: EventEmitter<string> = new EventEmitter();
-
-  constructor(private pgService: PgService) { }
+ private id;
+ private schema;
+ @ViewChild('schemaDetails') schemaDetails;
+  constructor(private pgService: PgService, private _routeParams: ActivatedRoute, private router: Router) { 
+  }
 
   ngOnInit() {
     this.pgService.pgcall('pgdoc', 'list_schemas', { 'prm_ignore': ['pg%', 'information_schema'] })
       .then(data => {
         this.schemas = data;
+        console.log(data);
       });
+      
+      this._routeParams.params.subscribe(params => {
+        this.id = params['id'];
+        console.log(this.id);
+        this.schemaSelected(this.id);
+    });
   }
 
-  onSelectChange(event) { this.onselected.emit(event.target.value); }
+  onSelectChange(name) { this.router.navigate(['schema/', name]); }
+  schemaSelected(event) { this.schemaDetails.setSchema(event); }
 }

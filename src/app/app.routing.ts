@@ -17,7 +17,19 @@ const appRoutes: Routes = [
         path: '', pathMatch: 'full',
         redirectTo: ''
     },
-    { path: 'schema/:id', component: SchemaDescriptionComponent },
+    { path: 'schema/:id',
+    children: [
+        { 
+            path : '',
+            component: SchemaDescriptionComponent
+        }, {
+            path: '',
+            outlet: 'menu',
+            component: SchemasListComponent
+        }
+        
+    ] 
+    },
     { path: 'table/:schema/:id', component: TableDetailsComponent },
     { path: 'type/:schema/:id', component: TypeDetailsComponent },
     { path: 'enum/:schema/:id', component: EnumDetailsComponent },

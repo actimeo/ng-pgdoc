@@ -8,8 +8,9 @@
 <md-sidenav-container>
   <md-sidenav name="menu" #sidenav mode="side" opened="true">
     <div class="app-belowtoolbar">
-        <pr-schemas-list (onselected)="schemaSelected($event)"></pr-schemas-list>
-        <pr-schema-details #schemaDetails></pr-schema-details>
+        <router-outlet name="menu"></router-outlet>
+        <!--pr-schemas-list (onselected)="schemaSelected($event)"></pr-schemas-list-->
+        
     </div>
   </md-sidenav>
   <div class="app-belowtoolbar" md-scroll-y layout-padding>
