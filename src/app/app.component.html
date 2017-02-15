@@ -9,6 +9,7 @@
   <md-sidenav-container>
     <md-sidenav name="menu" #sidenav mode="side" opened="true">
       <router-outlet name="menu"></router-outlet>
+      <div *ngIf="navigation?.currentTitle == 'Variation database'"><pr-schemas-list></pr-schemas-list></div>
     </md-sidenav>
     <router-outlet></router-outlet>
   </md-sidenav-container>
